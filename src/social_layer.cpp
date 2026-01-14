@@ -229,6 +229,7 @@ void SocialLayer::updateCosts(
 
   if (!enabled_) {
     RCLCPP_INFO(logger_, "SocialLayer::updateCosts. Disabled");
+    current_ = true;
     return;
   }
 
@@ -239,6 +240,7 @@ void SocialLayer::updateCosts(
   }
   if (!people_snapshot || people_snapshot->people.empty()) {
     RCLCPP_INFO(logger_, "SocialLayer::updateCosts. No people");
+    current_ = true;
     return;
   }
 
@@ -246,6 +248,7 @@ void SocialLayer::updateCosts(
     RCLCPP_INFO(
       logger_, "SocialLayer::updateCosts. cutoff: %f, amplitude: %f", cutoff_,
       amplitude_);
+    current_ = true;
     return;
   }
 
